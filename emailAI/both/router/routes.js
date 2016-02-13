@@ -7,6 +7,11 @@ Router.route('/dashboard', {
   controller: 'DashboardController'
 });
 
+
+//routing for results page
+Router.route('/results', {
+  name: 'results',
+})
 Router.plugin('ensureSignedIn', {
   only: ['dashboard']
 });
