@@ -2,6 +2,8 @@ angular@1.3.5
 angular-meteor-data@0.1.0
 angular-templates@0.0.3
 angular:angular@1.4.8
+angularjs:angular@1.3.15
+angularjs:angular-sanitize@1.3.15
 autopublish@1.0.4
 autoupdate@1.2.4
 babel-compiler@5.8.24_1
@@ -28,6 +30,8 @@ ecmascript-runtime@0.2.6
 ejson@1.0.7
 es5-shim@4.1.14
 fastclick@1.0.7
+fezvrasta:bootstrap-material-design@0.5.8
+fraywing:text-angular@1.3.11
 geojson-utils@1.0.4
 hot-code-push@1.0.0
 html-tools@1.0.5
@@ -48,6 +52,7 @@ mobile-experience@1.0.1
 mobile-status-bar@1.0.6
 mongo@1.1.3
 mongo-id@1.0.1
+natestrauser:font-awesome@4.3.0
 npm-mongo@1.4.39_1
 observe-sequence@1.0.7
 ordered-dict@1.0.4
@@ -64,6 +69,7 @@ spacebars@1.0.7
 spacebars-compiler@1.0.7
 standard-minifiers@1.0.2
 templating-tools@1.0.0
+timdown:rangy@1.2.3
 tracker@1.0.9
 twbs:bootstrap@3.3.6
 ui@1.0.8
