@@ -1,4 +1,4 @@
-var watson = require('watson-developer-cloud');
+var watson = Meteor.npmRequire('watson-developer-cloud');
 
 var tone_analyzer = watson.tone_analyzer({
   username: '<username>',
@@ -7,6 +7,8 @@ var tone_analyzer = watson.tone_analyzer({
   version_date: '2016-02-11'
 });
 
+
+//sparkpost input
 tone_analyzer.tone({ text: 'Greetings from Watson Developer Cloud!' },
   function(err, tone) {
     if (err)
