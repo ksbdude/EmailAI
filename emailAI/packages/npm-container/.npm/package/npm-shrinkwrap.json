@@ -1,5 +1,23 @@
 {
   "dependencies": {
+    "firebase": {
+      "version": "2.4.0",
+      "dependencies": {
+        "faye-websocket": {
+          "version": "0.9.3",
+          "dependencies": {
+            "websocket-driver": {
+              "version": "0.5.2",
+              "dependencies": {
+                "websocket-extensions": {
+                  "version": "0.1.1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "sparkpost": {
       "version": "1.1.0",
       "dependencies": {
@@ -684,6 +702,9 @@
           }
         }
       }
+    },
+    "xmlhttprequest": {
+      "version": "1.8.0"
     }
   }
 }

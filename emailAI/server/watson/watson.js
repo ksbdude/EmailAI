@@ -15,6 +15,7 @@ tone_analyzer.tone({ text: 'watson is stupid' },
       console.log(err);
     else
       console.log(JSON.stringify(tone, null, 2));
+
       watsonData = {JSON.stringify(tone, null, 2)};
       var arr = JSON.parse(response);
     var i;
@@ -31,9 +32,10 @@ tone_analyzer.tone({ text: 'watson is stupid' },
     }
     out += "</table>";
     document.getElementById("id01").innerHTML = out;
+
 });
 
 
 function parseToEmail(response) {
-    
+
 }
