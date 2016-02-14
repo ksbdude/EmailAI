@@ -8,7 +8,7 @@ ref.orderByKey().on("child_added", function(snapshot) {
   //var testThing = snapshot.val();
 
   var obj = JSON.stringify(snapshot.val());
-  console.log(obj)
+  var jText = obj
 
   watsonInput = snapshot.val();
   return watsonInput;
@@ -23,10 +23,11 @@ ref.orderByKey().on("child_added", function(snapshot) {
 //       console.log(JSON.stringify(tone, null, 2));
 //   }});
 
-var regex = /<?'n'>/;
-var watsonInputResult = watsonInput.text.match(regex);
+var Regex = Meteor.npmRequire("regex");
+var regex = new Regex(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/);
+var watsonInputResult = regex.watsonInput.text;
 
-var watsontext 
+var watsontext
 
 var watson = Meteor.npmRequire('watson-developer-cloud');
 

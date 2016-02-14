@@ -18,6 +18,67 @@
         }
       }
     },
+    "regex": {
+      "version": "0.1.1",
+      "dependencies": {
+        "lex": {
+          "version": "1.7.4"
+        },
+        "jison": {
+          "version": "0.4.4",
+          "dependencies": {
+            "JSONSelect": {
+              "version": "0.4.0"
+            },
+            "esprima": {
+              "version": "1.0.4"
+            },
+            "escodegen": {
+              "version": "0.0.21",
+              "dependencies": {
+                "estraverse": {
+                  "version": "0.0.4"
+                },
+                "source-map": {
+                  "version": "0.5.3"
+                }
+              }
+            },
+            "jison-lex": {
+              "version": "0.2.1"
+            },
+            "ebnf-parser": {
+              "version": "0.1.10"
+            },
+            "lex-parser": {
+              "version": "0.1.4"
+            },
+            "nomnom": {
+              "version": "1.5.2",
+              "dependencies": {
+                "underscore": {
+                  "version": "1.1.7"
+                },
+                "colors": {
+                  "version": "0.5.1"
+                }
+              }
+            }
+          }
+        },
+        "augment": {
+          "version": "3.2.1"
+        },
+        "statemachines": {
+          "version": "0.1.0",
+          "dependencies": {
+            "sorted-array": {
+              "version": "1.1.0"
+            }
+          }
+        }
+      }
+    },
     "sparkpost": {
       "version": "1.1.0",
       "dependencies": {
