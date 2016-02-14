@@ -4,19 +4,22 @@ var watsonInput;
 var ref = new Firebase("https://watspark.firebaseio.com/raw-events/");
 ref.orderByKey().on("child_added", function(snapshot) {
   var testThing = snapshot.val();
-  console.log(snapshot.exportVal());
+
+  var obj = JSON.stringify(snapshot.val());
+  console.log(obj)
+
    watsonInput = snapshot.exportVal();
   return watsonInput;
 });
 
 //sparkpost input
-tone_analyzer.tone({ text: watsonInput },
-  function(err, tone) {
-    if (err)
-      console.log(err);
-    else {
-      console.log(JSON.stringify(tone, null, 2));
-  }});
+// tone_analyzer.tone({ text: watsonInput },
+//   function(err, tone) {
+//     if (err)
+//       console.log(err);
+//     else {
+//       console.log(JSON.stringify(tone, null, 2));
+//   }});
 
 
 var watson = Meteor.npmRequire('watson-developer-cloud');
@@ -30,14 +33,13 @@ var tone_analyzer = watson.tone_analyzer({
 
 
 //sparkpost input
-tone_analyzer.tone({ text: 'text' },
+tone_analyzer.tone({ body : watsonInput },
   function(err, tone) {
     if (err)
       console.log(err);
     else {
       console.log(JSON.stringify(tone, null, 2));
-    }});
-
+  }});
 function parseToEmail(response) {
 
 }
