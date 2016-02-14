@@ -15,4 +15,5 @@ tone_analyzer.tone({ text: 'watson is stupid' },
       console.log(err);
     else
       console.log(JSON.stringify(tone, null, 2));
+      watsonData = {JSON.stringify(tone, null, 2)};
 });

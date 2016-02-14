@@ -35,17 +35,20 @@ Meteor.startup(function() {
 
 //sparkpost
 var SparkPost = Meteor.npmRequire('sparkpost');
-var sparky = new SparkPost('<YOUR API KEY>');
+var sparky = new SparkPost('eb5e8fde469ca2f150b28539eeccee8100b99e1f');
 
 sparky.transmissions.send({
   transmissionBody: {
     content: {
       from: 'testing@sparkpostbox.com',
       subject: 'Oh hey!',
-      html:'<html><body><p>Testing SparkPost - the world\'s most awesomest email service!</p></body></html>'
+      //TODO: Watson Output data goes here
+      // watsonData.val();
+      html: watsonData.val()
+      //html:'<html><body><p>Testing SparkPost - the world\'s most awesomest email service!</p></body></html>'
     },
     recipients: [
-      {address: 'developers@sparkpost.com'}
+      {address: 'bretth18@gmail.com'}
     ]
   }
 }, function(err, res) {
