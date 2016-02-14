@@ -39,14 +39,28 @@ var Firebase = Meteor.npmRequire('firebase');
 //     this.db.child('raw-events').child(snapshot.key()).remove()
 //   });
 // }
-var ref = new Firebase("https://watspark.firebaseio.com/raw-events");
+
+
+
+var ref = new Firebase("https://watspark.firebaseio.com/raw-events/");
+
 // Retrieve new posts as they are added to our database
 ref.on("child_added", function(snapshot, prevChildKey) {
   var newPost = snapshot.val();
-  console.log("text: "  + newPost.text);
-  console.log("Title: " + newPost.title);
-  console.log("Previous Post ID: " + prevChildKey);
+   console.log(snapshot.val());
+  // console.log("text: "  + newPost.text);
+  // console.log("Title: " + newPost.title);
+  // console.log("Previous Post ID: " + prevChildKey);
+  // var fireUrl = ("https://watspark.firebaseio.com/raw-events/" + snapshot.val() + "/0/msys/relay_message/content");
+  //  var bigBoy = new Firebase(fireUrl);
+  //   console.log("text: " + bigBoy.text);
 });
+
+
+
+
+
+
 
 // watSpark = new watSpark('https://watspark.firebaseio.com/');
 // watSpark.listen('raw-events');
