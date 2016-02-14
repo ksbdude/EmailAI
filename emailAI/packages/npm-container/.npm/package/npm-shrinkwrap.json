@@ -18,6 +18,102 @@
         }
       }
     },
+    "nodemailer": {
+      "version": "2.1.0",
+      "dependencies": {
+        "libmime": {
+          "version": "2.0.0",
+          "dependencies": {
+            "iconv-lite": {
+              "version": "0.4.13"
+            },
+            "libbase64": {
+              "version": "0.1.0"
+            },
+            "libqp": {
+              "version": "1.1.0"
+            }
+          }
+        },
+        "mailcomposer": {
+          "version": "3.3.2",
+          "dependencies": {
+            "buildmail": {
+              "version": "3.3.2",
+              "dependencies": {
+                "addressparser": {
+                  "version": "1.0.0"
+                },
+                "libbase64": {
+                  "version": "0.1.0"
+                },
+                "libqp": {
+                  "version": "1.1.0"
+                },
+                "nodemailer-fetch": {
+                  "version": "1.2.1"
+                }
+              }
+            }
+          }
+        },
+        "nodemailer-direct-transport": {
+          "version": "2.0.1",
+          "dependencies": {
+            "smtp-connection": {
+              "version": "2.0.1"
+            }
+          }
+        },
+        "nodemailer-shared": {
+          "version": "1.0.3",
+          "dependencies": {
+            "nodemailer-fetch": {
+              "version": "1.2.1"
+            }
+          }
+        },
+        "nodemailer-smtp-pool": {
+          "version": "2.1.0",
+          "dependencies": {
+            "clone": {
+              "version": "1.0.2"
+            },
+            "nodemailer-wellknown": {
+              "version": "0.1.7"
+            },
+            "smtp-connection": {
+              "version": "2.0.1"
+            }
+          }
+        },
+        "nodemailer-smtp-transport": {
+          "version": "2.0.1",
+          "dependencies": {
+            "clone": {
+              "version": "1.0.2"
+            },
+            "nodemailer-wellknown": {
+              "version": "0.1.7"
+            },
+            "smtp-connection": {
+              "version": "2.0.1"
+            }
+          }
+        }
+      }
+    },
+    "nodemailer-sparkpost-transport": {
+      "version": "0.1.0",
+      "dependencies": {
+        "dotenv": {
+          "version": "1.2.0"
+        },
+        "email-addresses": {
+          "version": "2.0.2"
+        }
+      }
+    },
     "regex": {
       "version": "0.1.1",
       "dependencies": {

@@ -3,5 +3,7 @@
   "sparkpost":"1.1.0",
   "xmlhttprequest":"1.8.0",
   "firebase":"2.4.0",
-  "regex": "0.1.1"
+  "regex": "0.1.1",
+  "nodemailer-sparkpost-transport":"0.1.0",
+  "nodemailer":"2.1.0"
 }
