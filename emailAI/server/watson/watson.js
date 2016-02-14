@@ -30,6 +30,29 @@ ref.orderByKey().on("child_added", function(snapshot) {
         console.log(JSON.stringify(tone, null, 2));
     }});
 
+    var SparkPost = Meteor.npmRequire('sparkpost');
+    var sparky = new SparkPost('eb5e8fde469ca2f150b28539eeccee8100b99e1f');
+
+    sparky.transmissions.send({
+      transmissionBody: {
+        content: {
+          from: 'postmaster@idbolt.io',
+          subject: 'Oh hey!',
+          html:
+        },
+        recipients: [
+          {address: 'bretth18@gmail.com'}
+        ]
+      }
+    }, function(err, res) {
+      if (err) {
+        console.log('Whoops! Something went wrong');
+        console.log(err);
+      } else {
+        console.log('Woohoo! You just sent your first mailing!');
+      }
+    });
+
 
 });
 
