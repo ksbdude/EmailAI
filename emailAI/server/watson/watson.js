@@ -9,18 +9,29 @@ var tone_analyzer = watson.tone_analyzer({
 
 
 //sparkpost input
-tone_analyzer.tone({ text: 'watson is stupid' },
+tone_analyzer.tone({ text: 'watson is really stupid' },
   function(err, tone) {
     if (err)
       console.log(err);
-    else
+    else {
       console.log(JSON.stringify(tone, null, 2));
-      watsonData = {JSON.stringify(tone, null, 2)};
-      var arr = JSON.parse(response);
-    var i;
-    var out = "<table>";
+      //watsonData = {JSON.stringify(tone, null, 2)};
+      //var arr = JSON.parse(response);
+      var i;
+      var out = "<table>";
 
-    for(i = 0; i < arr.length; i++) {
+      for (name in JSON.document_tone.tone_categories.tones) {
+        tones = myJSONObject.document_tone.tone_categories.tones[name];
+        for (i = 0; i < tones.length; i++) {
+          out += "<tr><td>" +
+          tones[2]
+          "</td><td>" +
+          tones[0]
+         "</td><td>";
+        }
+      }
+
+      for(i = 0; i < arr.length; i++) {
         out += "<tr><td>" +
         arr[i].document_tone +
         "</td><td>" +
@@ -28,12 +39,14 @@ tone_analyzer.tone({ text: 'watson is stupid' },
         "</td><td>" +
         arr[i].tones +
         "</td></tr>";
+      }
     }
     out += "</table>";
     document.getElementById("id01").innerHTML = out;
-});
+    console.log(out.);
+  });
 
 
 function parseToEmail(response) {
-    
+
 }
