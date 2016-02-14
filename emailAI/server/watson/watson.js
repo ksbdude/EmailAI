@@ -11,7 +11,24 @@ ref.orderByKey().on("child_added", function(snapshot) {
   var jText = obj
 
   watsonInput = snapshot.val();
-  return watsonInput;
+
+  var watson = Meteor.npmRequire('watson-developer-cloud');
+
+  var tone_analyzer = watson.tone_analyzer({
+    username: '5d2c5f1e-fbe2-4aa6-8186-2c9a6dd9f9aa',
+    password: 'xPYobQo1AZdx',
+    version: 'v3-beta',
+    version_date: '2016-02-11'
+  });
+
+  tone_analyzer.tone({ text : "" + watsonInput.text },
+    function(err, tone) {
+    	console.log("RUNNING WATSON");
+      if (err)
+        console.log(err);
+      else {
+        console.log(JSON.stringify(tone, null, 2));
+    }});
 });
 
 //sparkpost input
@@ -23,11 +40,7 @@ ref.orderByKey().on("child_added", function(snapshot) {
 //       console.log(JSON.stringify(tone, null, 2));
 //   }});
 
-var Regex = Meteor.npmRequire("regex");
-var regex = new Regex(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/);
-var watsonInputResult = regex.watsonInput.text;
 
-var watsontext
 
 var watson = Meteor.npmRequire('watson-developer-cloud');
 
@@ -39,7 +52,7 @@ var tone_analyzer = watson.tone_analyzer({
 });
 
 //sparkpost input
-tone_analyzer.tone({ text : "" + watsontext.text },
+tone_analyzer.tone({ text : "" + watsonInput.text },
   function(err, tone) {
   	console.log("RUNNING WATSON");
     if (err)
