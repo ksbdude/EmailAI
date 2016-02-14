@@ -110,5 +110,6 @@ useraccounts:core@1.13.1
 useraccounts:iron-routing@1.13.1
 webapp@1.2.3
 webapp-hashing@1.0.5
+webstudiopro:curl@0.0.1
 yasinuslu:blaze-meta@0.3.3
 zimme:iron-router-active@1.0.4
