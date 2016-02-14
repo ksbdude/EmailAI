@@ -1,9 +1,7 @@
 var Firebase = Meteor.npmRequire('firebase');
 
 function watSpark() {
-  constructor(url) {
     this.db = new Firebase(url)
-  }
 }
 
 function processBatch(batch) {
@@ -38,7 +36,7 @@ function listen(child) {
     this.db.child('raw-events').child(snapshot.key()).remove()
   });
 }
-}
+
 
 watSpark = new watSpark('https://watspark.firebaseio.com/')
 watSpark.listen('raw-events');
