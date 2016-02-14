@@ -22,7 +22,7 @@
 
 
 //handles email
-Meteor.startup(function() {
+// Meteor.startup(function() {
 //   smtp = {
 //     username:'postmaster@idbolt.io',
 //     password:'email22',
@@ -46,15 +46,15 @@ Meteor.startup(function() {
 //   console.log('Response:', body);
 // });
 // });
-
-var request = Meteor.require('request');
-
-request('https://api.sparkpost.com/api/v1/relay-webhooks/12013026328707075', function (error, response, body) {
-  console.log('Status:', response.statusCode);
-  console.log('Headers:', JSON.stringify(response.headers));
-  console.log('Response:', body);
-});
-});
+//
+// var request = Meteor.require('request');
+//
+// request('https://api.sparkpost.com/api/v1/relay-webhooks/12013026328707075', function (error, response, body) {
+//   console.log('Status:', response.statusCode);
+//   console.log('Headers:', JSON.stringify(response.headers));
+//   console.log('Response:', body);
+// });
+// });
 // request.send();
 
 //sparkpost

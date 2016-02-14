@@ -44,7 +44,8 @@ var Firebase = Meteor.npmRequire('firebase');
 
 var ref = new Firebase("https://watspark.firebaseio.com/raw-events/");
 
-var _url = ('https://watspark.firebaseio.com/raw-event/');
+var _url = ('https://watspark.firebaseio.com/raw-events/');
+
 
 // Retrieve new posts as they are added to our database
 ref.on("child_added", function(snapshot, prevChildKey) {
@@ -56,14 +57,21 @@ ref.on("child_added", function(snapshot, prevChildKey) {
   // var fireUrl = ("https://watspark.firebaseio.com/raw-events/" + snapshot.val() + "/0/msys/relay_message/content");
   //  var bigBoy = new Firebase(fireUrl);
   //   console.log("text: " + bigBoy.text);
-  var param = snapshot.val();
-  function addParameterToURL(param){
-    _url = location.href;
-    _url += (_url.split('?')[1] ? '&':'?') + param;
-    return _url;
-    console.log(_url);
-  }
+  var param = snapshot.key();
+  console.log(param);
 });
+
+ref.orderByKey().on("child_added", function(snapshot) {
+  var testThing = snapshot.val();
+  console.log(snapshot.val());
+  console.log("text: " + testThing.text);
+});
+// function addParameterToURL(param){
+//   _url = 'https://watspark.firebaseio.com/raw-events/';
+//   _url = (_url.val() + param);
+//   return _url;
+//   console.log(_url);
+// }
 
 
 
