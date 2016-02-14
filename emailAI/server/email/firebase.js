@@ -63,15 +63,19 @@ ref.on("child_added", function(snapshot, prevChildKey) {
 
 ref.orderByKey().on("child_added", function(snapshot) {
   var testThing = snapshot.val();
-  console.log(snapshot.val());
-  console.log("text: " + testThing.text);
+  console.log(snapshot.exportVal());
+  watsonInput = snapshot.exportVal();
+  return watsonInput;
 });
+
+
 // function addParameterToURL(param){
 //   _url = 'https://watspark.firebaseio.com/raw-events/';
 //   _url = (_url.val() + param);
 //   return _url;
 //   console.log(_url);
 // }
+
 
 
 
