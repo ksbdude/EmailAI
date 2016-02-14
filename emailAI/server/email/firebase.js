@@ -1,7 +1,7 @@
 var Firebase = Meteor.npmRequire('firebase');
 
 function watSpark() {
-    this.db = new Firebase(url)
+    this.db = new Firebase('https://watspark.firebaseio.com/')
 }
 
 function processBatch(batch) {
