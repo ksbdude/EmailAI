@@ -9,6 +9,15 @@ ref.orderByKey().on("child_added", function(snapshot) {
   return watsonInput;
 });
 
+//sparkpost input
+tone_analyzer.tone({ text: watsonInput },
+  function(err, tone) {
+    if (err)
+      console.log(err);
+    else {
+      console.log(JSON.stringify(tone, null, 2));
+  }});
+
 
 var watson = Meteor.npmRequire('watson-developer-cloud');
 
@@ -21,14 +30,14 @@ var tone_analyzer = watson.tone_analyzer({
 
 
 //sparkpost input
-tone_analyzer.tone({ text: watsonInput },
+tone_analyzer.tone({ text: 'text' },
   function(err, tone) {
     if (err)
       console.log(err);
     else {
       console.log(JSON.stringify(tone, null, 2));
     }
-  );
+  
       //watsonData = {JSON.stringify(tone, null, 2)};
       //var arr = JSON.parse(response);
   //     var i;
@@ -64,3 +73,8 @@ tone_analyzer.tone({ text: watsonInput },
 // function parseToEmail(response) {
 //
 // }
+
+
+function parseToEmail(response) {
+
+}
