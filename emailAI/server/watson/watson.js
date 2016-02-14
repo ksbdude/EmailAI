@@ -28,6 +28,7 @@ ref.orderByKey().on("child_added", function(snapshot) {
         console.log(err);
       else {
         console.log(JSON.stringify(tone, null, 2));
+
     }});
 
     var SparkPost = Meteor.npmRequire('sparkpost');
@@ -38,7 +39,7 @@ ref.orderByKey().on("child_added", function(snapshot) {
         content: {
           from: 'postmaster@idbolt.io',
           subject: 'Oh hey!',
-          html:
+          html: 'test' //append watson data
         },
         recipients: [
           {address: 'bretth18@gmail.com'}
