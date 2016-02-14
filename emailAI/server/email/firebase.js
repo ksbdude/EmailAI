@@ -44,6 +44,8 @@ var Firebase = Meteor.npmRequire('firebase');
 
 var ref = new Firebase("https://watspark.firebaseio.com/raw-events/");
 
+var _url = ('https://watspark.firebaseio.com/raw-event/');
+
 // Retrieve new posts as they are added to our database
 ref.on("child_added", function(snapshot, prevChildKey) {
   var newPost = snapshot.val();
@@ -54,8 +56,18 @@ ref.on("child_added", function(snapshot, prevChildKey) {
   // var fireUrl = ("https://watspark.firebaseio.com/raw-events/" + snapshot.val() + "/0/msys/relay_message/content");
   //  var bigBoy = new Firebase(fireUrl);
   //   console.log("text: " + bigBoy.text);
+  var param = snapshot.val();
+  function addParameterToURL(param){
+    _url = location.href;
+    _url += (_url.split('?')[1] ? '&':'?') + param;
+    return _url;
+    console.log(_url);
+  }
 });
 
+
+
+// need to append our child 3 layers in.
 
 
 
