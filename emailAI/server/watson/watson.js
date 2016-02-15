@@ -30,11 +30,7 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
       else {
         console.log(JSON.stringify(tone, null, 2));
          watsonOutput = JSON.stringify(tone, null, 2);
-
-    }});
-
-    //sends email back to client
-    var SparkPost = Meteor.npmRequire('sparkpost');
+            var SparkPost = Meteor.npmRequire('sparkpost');
     var sparky = new SparkPost('eb5e8fde469ca2f150b28539eeccee8100b99e1f');
 
     sparky.transmissions.send({
@@ -42,11 +38,11 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
         content: {
           from: 'postmaster@idbolt.io',
           subject: 'Oh hey!',
-          html: ''
-          content: '' //append watson data
+          html: '<html><body><p>' + watsonOutput + ' </p></body></html>',
+          content: watsonOutput //append watson data
         },
         recipients: [
-          {address: ''} //append original sender address as recipient
+          {address: 'kevinscottburns@gmail.com'} //append original sender address as recipient
         ]
       }
     }, function(err, res) {
@@ -57,6 +53,10 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
         console.log('message results from watson sent');
       }
     });
+    }});
+
+    //sends email back to client
+ 
 
 
 });
