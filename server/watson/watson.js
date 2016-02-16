@@ -29,9 +29,9 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
          watsonOutput = JSON.stringify(tone, null, 2);
             var SparkPost = Meteor.npmRequire('sparkpost');
     var sparky = new SparkPost('eb5e8fde469ca2f150b28539eeccee8100b99e1f');
-    
-    var emailText = '<html><body><h1>Original Email: </h1><p>' + watsonInput.text '</p> <h1>Results: </h1><p>' + JSON.stringify(tone.document_tone.tone_categories.tones, null, 2) + ' </p></body></html>';
-    
+
+    var emailText = '<html><body><h1>Original Email: </h1><p>' + watsonInput.text + '</p> <h1>Results: </h1><p>' + JSON.stringify(tone.document_tone.tone_categories.tones, null, 2) + ' </p></body></html>';
+
     sparky.transmissions.send({
       transmissionBody: {
         content: {
