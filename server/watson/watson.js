@@ -5,10 +5,7 @@ var watsonInput = "text";
 var ref = new Firebase("https://watspark.firebaseio.com/raw-events/");
 
 ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
-  var obj = JSON.stringify(snapshot.val());
-  var jText = obj
-
-  watsonInput = snapshot.val();
+  watsonInput = JSON.stringify(snapshot.val());
 
   var watson = Meteor.npmRequire('watson-developer-cloud');
 
