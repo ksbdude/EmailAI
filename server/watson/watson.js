@@ -32,13 +32,15 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
          watsonOutput = JSON.stringify(tone, null, 2);
             var SparkPost = Meteor.npmRequire('sparkpost');
     var sparky = new SparkPost('eb5e8fde469ca2f150b28539eeccee8100b99e1f');
-
+    
+    var emailText = '<html><body><p>' + tone.document_tone.tone_categories.tones + ' </p></body></html>';
+    
     sparky.transmissions.send({
       transmissionBody: {
         content: {
           from: 'postmaster@idbolt.io',
           subject: 'Oh hey!',
-          html: '<html><body><p>' + watsonOutput + ' </p></body></html>',
+          html: '' + emailText,
           content: watsonOutput //append watson data
         },
         recipients: [
