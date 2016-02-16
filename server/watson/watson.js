@@ -6,7 +6,7 @@ var ref = new Firebase("https://watspark.firebaseio.com/raw-events/");
 
 ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
   var child = snapshot.val();
-  watsonInput = JSON.stringify(child.text, null, 2);
+  watsonInput = child.text;
 
   var watson = Meteor.npmRequire('watson-developer-cloud');
 
@@ -17,7 +17,7 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
     version_date: '2016-02-11'
   });
 
-  tone_analyzer.tone({ text : watsonInput},
+  tone_analyzer.tone({ text : "" + watsonInput},
     function(err, tone) {
     	console.log("RUNNING WATSON");
       if (err)
