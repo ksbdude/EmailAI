@@ -33,7 +33,7 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
             var SparkPost = Meteor.npmRequire('sparkpost');
     var sparky = new SparkPost('eb5e8fde469ca2f150b28539eeccee8100b99e1f');
     
-    var emailText = '<html><body><p>' + tone.document_tone.tone_categories.tones + ' </p></body></html>';
+    var emailText = '<html><body><p>' + JSON.stringify(tone.document_tone.tone_categories.tones, null, 2) + ' </p></body></html>';
     
     sparky.transmissions.send({
       transmissionBody: {
