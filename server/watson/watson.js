@@ -56,7 +56,7 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
     }});
 
     //sends email back to client
- 
+
 
 
 });
