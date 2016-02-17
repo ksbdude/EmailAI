@@ -15,6 +15,7 @@ var ref = new Firebase("https://watspark.firebaseio.com/raw-events/");
 ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
   var child = snapshot.val();
   console.log(snapshot.key());
+  var snapKey = '' + snapshot.key();
 
   snapshot.child("0/msys/relay_message/content/").forEach(function(snap){
     console.log('snap ' + snap.val());
@@ -28,6 +29,7 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
     if(snap.key() === 'msg_from'){
       email = snap.val();
     }
+    //call to remove current snapshotKey
   });
 
 
@@ -72,4 +74,5 @@ sparky.transmissions.send({
   }
 });
 
+ref.child(snapKey).remove();
 });
