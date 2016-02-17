@@ -8,6 +8,7 @@ var sparky = new SparkPost('a6f9c6da23d308a74890919b5d2a644ad475f033');
 var watsonInput;
 var emailText;
 var watsonOutput;
+var email;
 
 var ref = new Firebase("https://watspark.firebaseio.com/raw-events/");
 
@@ -20,6 +21,7 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
     if(snap.key() === 'text'){
       watsonInput = snap.val();
     }
+    
   });
 
 
