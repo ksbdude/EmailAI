@@ -21,7 +21,13 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
     if(snap.key() === 'text'){
       watsonInput = snap.val();
     }
-    
+  });
+
+  snapshot.child("0/msys/relay_message/").forEach(function(snap){
+    console.log('email: ' + snap.val());
+    if(snap.key() === 'msg_from'){
+      email = snap.val();
+    }
   });
 
 
@@ -54,7 +60,7 @@ sparky.transmissions.send({
       text: ''
     },
     recipients: [
-    {address: 'kevinscottburns@gmail.com'}
+    {address: email}
     ]
   }
 }, function(err, res) {
