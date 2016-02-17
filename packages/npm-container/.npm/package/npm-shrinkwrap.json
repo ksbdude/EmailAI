@@ -18,6 +18,9 @@
         }
       }
     },
+    "node-json2html": {
+      "version": "1.0.0"
+    },
     "nodemailer": {
       "version": "2.1.0",
       "dependencies": {
