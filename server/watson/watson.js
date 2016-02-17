@@ -50,6 +50,16 @@ tone_analyzer.tone({ text : "" + watsonInput},
     watsonOutput = JSON.stringify(tone, null, 2);
   }});
 
+// //JSON2HTML
+// var json2html = Meteor.npmRequire('node-json2html');
+// var transformer = {"tag":"li", "id":"${tone_name}", children:[
+//   {"tag":"span", "html":"${score}"}
+// ]};
+//
+// var jsonFormated = json2html.transform(watsonOutput,transformer);
+// //debugging, remove colors package
+// console.log(jsonFormated.rainbow);
+
 emailText = '<html><body><h2>Original Email: </h2><p>' + watsonInput + '</p> <h2>Results: </h2><p>' + watsonOutput + ' </p></body></html>';
 console.log('EMAIL TEXT: '+ emailText);
 
