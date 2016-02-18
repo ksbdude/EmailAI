@@ -1,10 +1,9 @@
 
-Template.results.helpers({
+Template.demo.helpers({
   create: function(){
 
   },
   rendered: function(){
-    //$('#watsonOutput') = watsonOutput;
 
   },
   destroyed: function(){
@@ -12,7 +11,7 @@ Template.results.helpers({
   },
 });
 
-Template.result.events({
+Template.demo.events({
   "click #foo": function(event, template){
 
   }
