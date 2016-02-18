@@ -26,3 +26,4 @@
 ##Contributing
 * Issues: https://github.com/ksbdude/DeveloperWeek/issues
 * Slack: https://cocoio.slack.com
+* Trello: https://trello.com/b/ykisNBSB/email-ai-main
