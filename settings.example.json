@@ -11,11 +11,18 @@
       "oauth_key" : "<oauth_key>",
       "oauth_secret" : "<oauth_secret>",
       "api_key" : "<api_key>"
+    },
+    "watson": {
+      "username": "<watson_username>",
+      "password": "<watson_password>"
+    },
+    "sparkpost": {
+      "auth_key": "sparkpost_authkey"
     }
   },
   "public" : {
     "meta" : {
-      "title" : "Project Title"
+      "title" : "emailAI"
     }
   }
 }
