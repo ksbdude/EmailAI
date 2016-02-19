@@ -17,6 +17,11 @@ Router.route('/results', {
   name: 'results',
 });
 
+//routing for about page
+Router.route('/about', {
+  name: 'about',
+});
+
 Router.plugin('ensureSignedIn', {
   only: ['dashboard']
 });
