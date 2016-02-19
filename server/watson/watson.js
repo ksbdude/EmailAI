@@ -33,38 +33,6 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
   });
 
 
-//lanaguage processing for multi-language translation from watson
-var language_translation = watson.language_translation({
-  //temp settings for testing
-  username: '5d2c5f1e-fbe2-4aa6-8186-2c9a6dd9f9aa',
-  password: 'xPYobQo1AZdx',
-  version: 'v2'
-});
-
-//identify the language to be passed into translation
-language_translation.identify({ text: "" + watsonInput },
-  function(err, identifiedTranslation){
-    if (err){
-      console.log('FAILED TO IDENTIFY LANGUAGE');
-    } else {
-      console.log(identifiedTranslation);
-    }
-  }
-})
-
-
-//handles our translation and passes to watsonInput
-// language_translation.translate({
-//   //
-//   //
-//   function(err, transle){
-//     if (err){
-//       console.log(err);
-//     } else {
-//       console.log(translate);
-//     }
-//   }
-// });
 
 //these should be stored in env.keys
 var tone_analyzer = watson.tone_analyzer({
@@ -82,31 +50,33 @@ tone_analyzer.tone({ text : "" + watsonInput},
   else {
     console.log('WATSON TONE: ' + JSON.stringify(tone, null, 2));
     watsonOutput = JSON.stringify(tone, null, 2);
+    jsonOutput = tone;
   }});
 
-//JSON2HTML
-var json2html = Meteor.npmRequire('node-json2html');
-//transformer formats the JSON data into HTML
-var transformer = {"tag":"div","id":"${document_tone}","children":[
-    {"tag":"div","id":"${tone_categories}","children":[
-        {"tag":"div","id":"${tones}","children":[
-            {"tag":"span","html":" ${score}"},
-            {"tag":"span","html":"tone_id: ${tone_id}"},
-            {"tag":"span","html":"tone_name ${tone_name}"}
-          ]}
-      ]}
-  ]};
 
-//watson output formatted in HTML
-//var handleInput = Template.handleInput.onRendered = function(){
+  //JSON to HTML table
+  //taking unstringed json object and parsing, then breaking down each part of the object
 
-//};
+  //parse the JSON so we can access what we need
+  var parsed = JSON.parse(jsonOutput);
 
-var jsonFormated = json2html.transform(watsonOutput,transformer);
-//debugging, remove colors package
-console.log('JSON FORMATTED: ' + jsonFormated);
+  //get the amount of objects inside 'watson_tone' so we can loop through each one
+  var count = Object.keys(parsed.watson_tone).length;
 
-emailText = '<html><body><h2>Original Email: </h2><p>' + watsonInput + '</p> <h2>Results: </h2><p>' + watsonOutput + ' </p></body></html>';
+  //strings to include in input
+  var tableHeader = "<table><tr><th>score</th><th>tone_id</th></tr>";
+  var tableContent = "";
+
+  //loop through the JSON and output each row in to a string
+  for (i = 0; i < count; i++) {
+      tableContent = tableContent + "<tr><td>" + parsed.watson_tone[i].score + "</td><td>" + parsed.watson_tone[i].tone_id + "</tr>";
+  }
+  var tableFooter = "</table>";
+
+  //get div and output the HTML. You can include these HTML strings straight in to your emailText variable.
+  document.getElementById("json_table").innerHTML = tableHeader + tableContent + tableFooter;
+
+emailText = '<html><body><h2>Original Email: </h2><p>' + watsonInput + '</p> <h2>Results: </h2><p>' + jsonOutput + ' </p></body></html>';
 console.log('EMAIL TEXT: '+ emailText);
 
 sparky.transmissions.send({
