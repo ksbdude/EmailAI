@@ -9,6 +9,7 @@ var watsonInput;
 var emailText;
 var watsonOutput;
 var email;
+var jsonOutput;
 
 var ref = new Firebase("https://watspark.firebaseio.com/raw-events/");
 
@@ -50,7 +51,7 @@ tone_analyzer.tone({ text : "" + watsonInput},
   else {
     console.log('WATSON TONE: ' + JSON.stringify(tone, null, 2));
     watsonOutput = JSON.stringify(tone, null, 2);
-    jsonOutput = tone;
+    jsonOutput = JSON.parse(tone, null, 2);
   }});
 
 
@@ -58,10 +59,10 @@ tone_analyzer.tone({ text : "" + watsonInput},
   //taking unstringed json object and parsing, then breaking down each part of the object
 
   //parse the JSON so we can access what we need
-  var parsed = JSON.parse(jsonOutput);
+  //var parsed = JSON.parse(jsonOutput);
 
   //get the amount of objects inside 'watson_tone' so we can loop through each one
-  var count = Object.keys(parsed.watson_tone).length;
+  var count = Object.keys(watsonOutput.watson_tone).length;
 
   //strings to include in input
   var tableHeader = "<table><tr><th>score</th><th>tone_id</th></tr>";
@@ -73,7 +74,7 @@ tone_analyzer.tone({ text : "" + watsonInput},
   }
   var tableFooter = "</table>";
 
-  //get div and output the HTML. You can include these HTML strings straight in to your emailText variable.
+  //get div and output the HTML. can include these strings straight into emailText
   document.getElementById("json_table").innerHTML = tableHeader + tableContent + tableFooter;
 
 emailText = '<html><body><h2>Original Email: </h2><p>' + watsonInput + '</p> <h2>Results: </h2><p>' + jsonOutput + ' </p></body></html>';
