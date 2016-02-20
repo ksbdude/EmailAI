@@ -49,25 +49,58 @@ tone_analyzer.tone({ text : "" + watsonInput},
   else {
     watsonOutput = JSON.stringify(tone, null, 2);
     jsonOutput = JSON.parse(watsonOutput);
+    jsonOutput = jsonOutput['document_tone']['tone_categories'];
 
 
 
-    var anger = jsonOutput['document_tone']['tone_categories'][0]["tones"][0]["score"];
+    var anger = jsonOutput[0]["tones"][0]["score"];
+    anger *= 100;
     console.log("anger: " + anger);
 
-    var disgust = jsonOutput['document_tone']['tone_categories'][0]["tones"][1]["score"];
+    var disgust = jsonOutput[0]["tones"][1]["score"];
+    disgust *= 100;
     console.log("disgust: " + disgust);
 
-    var fear = jsonOutput['document_tone']['tone_categories'][0]["tones"][2]["score"];
+    var fear = jsonOutput[0]["tones"][2]["score"];
+    fear *= 100;
     console.log("fear: " + fear);
 
-    var joy = jsonOutput['document_tone']['tone_categories'][0]["tones"][3]["score"];
+    var joy = jsonOutput[0]["tones"][3]["score"];
+    joy *= 100;
     console.log("joy: " + joy);
 
-    var sadness = jsonOutput['document_tone']['tone_categories'][0]["tones"][4]["score"];
+    var sadness = jsonOutput[0]["tones"][4]["score"];
+    sadness *= 100;
     console.log("sandness: " + sadness);
 
-    emailText = '<html><body><h2>Original Email: </h2><p>' + watsonInput + '</p> <h2>Results: </h2><p>' + "Anger: " + anger +  "\r\n Disgust: " + disgust +  "\r\n Fear: " + fear +  "\r\n Joy: " + joy +  "\r\n Sadness: " + sadness + ' </p></body></html>';
+    var analytical = jsonOutput[1]["tones"][0]["score"];
+    analytical *= 100;
+
+    var confident = jsonOutput[1]["tones"][1]["score"];
+    confident *= 100;
+
+    var tentative = jsonOutput[1]["tones"][2]["score"];
+    tentative *= 100;
+
+    emailText = '<html><body><h2>Original Email: </h2><p>' + watsonInput + '</p> <h2>Results: </h2> <h2>--Emotions--</h2><p>' +
+    '<h3>Anger: </h3> <p>' +
+    anger + '%' +
+    '</p> <h3>Disgust: </h3> <p>' +
+    disgust + '%' +
+    '</p> <h3>Fear: </h3> <p>' +
+    fear + '%' +
+    '</p> <h3>Joy: </h3> <p>' +
+    joy + '%' +
+    '</p> <h3>Sadness: </h3> <p>' +
+    sadness + '%' +
+    '<h2>--Writing Tone--</h2>' +
+    '</p> <h3>Analytical: </h3> <p>' +
+    analytical + '%' +
+    '</p> <h3>Confident: </h3> <p>' +
+    confident + '%' +
+    '</p> <h3>Tentative: </h3> <p>' +
+    tentative + '%' +
+    '</p><p><i>Created by Kevin Burns and Brett Henderson</i></p></body></html>';
 
     console.log('EMAIL TEXT: '+ emailText);
 
