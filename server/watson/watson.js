@@ -51,8 +51,7 @@ tone_analyzer.tone({ text : "" + watsonInput},
     jsonOutput = JSON.parse(watsonOutput);
     jsonOutput = jsonOutput['document_tone']['tone_categories'];
 
-
-
+    //Emotions
     var anger = jsonOutput[0]["tones"][0]["score"];
     anger *= 100;
     console.log("anger: " + anger);
@@ -73,6 +72,7 @@ tone_analyzer.tone({ text : "" + watsonInput},
     sadness *= 100;
     console.log("sandness: " + sadness);
 
+    //Writing Tone
     var analytical = jsonOutput[1]["tones"][0]["score"];
     analytical *= 100;
 
@@ -81,6 +81,23 @@ tone_analyzer.tone({ text : "" + watsonInput},
 
     var tentative = jsonOutput[1]["tones"][2]["score"];
     tentative *= 100;
+
+
+    //Social Tone
+    var openness = jsonOutput[2]["tones"][0]["score"];
+    openness *= 100;
+
+    var conscientiousness = jsonOutput[2]["tones"][1]["score"];
+    conscientiousness *= 100;
+
+    var extraversion = jsonOutput[2]["tones"][2]["score"];
+    extraversion *= 100;
+
+    var agreeableness = jsonOutput[2]["tones"][3]["score"];
+    agreeableness *= 100;
+
+    var emotionalrange = jsonOutput[2]["tones"][4]["score"];
+    emotionalrange *= 100;
 
     emailText = '<html><body><h2>Original Email: </h2><p>' + watsonInput + '</p> <h2>Results: </h2> <h2>--Emotions--</h2><p>' +
     '<h3>Anger: </h3> <p>' +
@@ -100,6 +117,18 @@ tone_analyzer.tone({ text : "" + watsonInput},
     confident + '%' +
     '</p> <h3>Tentative: </h3> <p>' +
     tentative + '%' +
+    '<h2>--Social Tone--</h2>' +
+    '</p> <h3>openness: </h3> <p>' +
+    openness + '%' +
+    '</p> <h3>conscientiousness: </h3> <p>' +
+    conscientiousness + '%' +
+    '</p> <h3>extraversion: </h3> <p>' +
+    extraversion + '%' +
+    '</p> <h3>agreeableness: </h3> <p>' +
+    agreeableness + '%' +
+    '</p> <h3>emotionalrange: </h3> <p>' +
+    emotionalrange + '%' +
+
     '</p><p><i>Created by Kevin Burns and Brett Henderson</i></p></body></html>';
 
     console.log('EMAIL TEXT: '+ emailText);
