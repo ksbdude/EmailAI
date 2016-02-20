@@ -67,7 +67,7 @@ tone_analyzer.tone({ text : "" + watsonInput},
     var sadness = jsonOutput['document_tone']['tone_categories'][0]["tones"][4]["score"];
     console.log("sandness: " + sadness);
 
-    emailText = '<html><body><h2>Original Email: </h2><p>' + watsonInput + '</p> <h2>Results: </h2><p>' + "Anger: " + anger +  "\n Disgust: " + disgust +  "\n Fear: " + fear +  "\n Joy: " + joy +  "\n Sadness: " + sadness + ' </p></body></html>';
+    emailText = '<html><body><h2>Original Email: </h2><p>' + watsonInput + '</p> <h2>Results: </h2><p>' + "Anger: " + anger +  "\r\n Disgust: " + disgust +  "\r\n Fear: " + fear +  "\r\n Joy: " + joy +  "\r\n Sadness: " + sadness + ' </p></body></html>';
 
     console.log('EMAIL TEXT: '+ emailText);
 
