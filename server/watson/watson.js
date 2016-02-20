@@ -21,6 +21,7 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
   snapshot.child("0/msys/relay_message/content/").forEach(function(snap){
     if(snap.key() === 'text'){
       watsonInput = snap.val();
+      watsonInput = watsonInput.replace('>', '').replace('<', '').replace('LEGAL NOTICE: The information in this transmission is or may be privileged, confidential (and/or copyrighted), and intended only for the use of the individual(s) or entity(s) named above. If you are not the intended recipient, please note that any disclosure, copying, distribution, or other action in reliance on the contents of this transmission is strictly prohibited and may be unlawful. If you received this transmission in error, please notify the sender and destroy the original message and all copies from your system. It is the responsibility of the recipient to ensure that this transmission is virus free and no responsibility is accepted by JBREC, LLC. for any loss or damage arising in any way from its use. Thank you.', '');
     }
   });
 
@@ -51,38 +52,63 @@ tone_analyzer.tone({ text : "" + watsonInput},
     jsonOutput = JSON.parse(watsonOutput);
     jsonOutput = jsonOutput['document_tone']['tone_categories'];
 
-
-
+    //Emotions
     var anger = jsonOutput[0]["tones"][0]["score"];
     anger *= 100;
-    console.log("anger: " + anger);
+    anger = Math.round(anger);
 
     var disgust = jsonOutput[0]["tones"][1]["score"];
     disgust *= 100;
-    console.log("disgust: " + disgust);
+    disgust = Math.round(disgust);
 
     var fear = jsonOutput[0]["tones"][2]["score"];
     fear *= 100;
-    console.log("fear: " + fear);
+    fear = Math.round(fear);
 
     var joy = jsonOutput[0]["tones"][3]["score"];
     joy *= 100;
-    console.log("joy: " + joy);
+    joy = Math.round(joy);
 
     var sadness = jsonOutput[0]["tones"][4]["score"];
     sadness *= 100;
-    console.log("sandness: " + sadness);
+    sadness = Math.round(sadness);
 
+    //Writing Tone
     var analytical = jsonOutput[1]["tones"][0]["score"];
     analytical *= 100;
+    analytical = Math.round(analytical);
 
     var confident = jsonOutput[1]["tones"][1]["score"];
     confident *= 100;
+    confident = Math.round(confident);
 
     var tentative = jsonOutput[1]["tones"][2]["score"];
     tentative *= 100;
+    tentative = Math.round(tentative);
 
-    emailText = '<html><body><h2>Original Email: </h2><p>' + watsonInput + '</p> <h2>Results: </h2> <h2>--Emotions--</h2><p>' +
+
+    //Social Tone
+    var openness = jsonOutput[2]["tones"][0]["score"];
+    openness *= 100;
+    openness = Math.round(openness);
+
+    var conscientiousness = jsonOutput[2]["tones"][1]["score"];
+    conscientiousness *= 100;
+    conscientiousness = Math.round(conscientiousness);
+
+    var extraversion = jsonOutput[2]["tones"][2]["score"];
+    extraversion *= 100;
+    extraversion = Math.round(extraversion);
+
+    var agreeableness = jsonOutput[2]["tones"][3]["score"];
+    agreeableness *= 100;
+    agreeableness = Math.round(agreeableness);
+
+    var emotionalrange = jsonOutput[2]["tones"][4]["score"];
+    emotionalrange *= 100;
+    emotionalrange = Math.round(emotionalrange);
+
+    emailText = '<html><body><h2>Original Email: </h2><p>' + watsonInput + '</p><h2>Results: </h2> <h2>--Emotions--</h2><p>' +
     '<h3>Anger: </h3> <p>' +
     anger + '%' +
     '</p> <h3>Disgust: </h3> <p>' +
@@ -100,6 +126,17 @@ tone_analyzer.tone({ text : "" + watsonInput},
     confident + '%' +
     '</p> <h3>Tentative: </h3> <p>' +
     tentative + '%' +
+    '<h2>--Social Tone--</h2>' +
+    '</p> <h3>Openness: </h3> <p>' +
+    openness + '%' +
+    '</p> <h3>Conscientiousness: </h3> <p>' +
+    conscientiousness + '%' +
+    '</p> <h3>Extraversion: </h3> <p>' +
+    extraversion + '%' +
+    '</p> <h3>Agreeableness: </h3> <p>' +
+    agreeableness + '%' +
+    '</p> <h3>Emotional Range: </h3> <p>' +
+    emotionalrange + '%' +
     '</p><p><i>Created by Kevin Burns and Brett Henderson</i></p></body></html>';
 
     console.log('EMAIL TEXT: '+ emailText);
