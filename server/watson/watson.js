@@ -21,6 +21,7 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
   snapshot.child("0/msys/relay_message/content/").forEach(function(snap){
     if(snap.key() === 'text'){
       watsonInput = snap.val();
+      watsonInput = watsonInput.replace('>', '').replace('<', '').replace('LEGAL NOTICE: The information in this transmission is or may be privileged, confidential (and/or copyrighted), and intended only for the use of the individual(s) or entity(s) named above. If you are not the intended recipient, please note that any disclosure, copying, distribution, or other action in reliance on the contents of this transmission is strictly prohibited and may be unlawful. If you received this transmission in error, please notify the sender and destroy the original message and all copies from your system. It is the responsibility of the recipient to ensure that this transmission is virus free and no responsibility is accepted by JBREC, LLC. for any loss or damage arising in any way from its use. Thank you.', '');
     }
   });
 
@@ -107,7 +108,7 @@ tone_analyzer.tone({ text : "" + watsonInput},
     emotionalrange *= 100;
     emotionalrange = Math.round(emotionalrange);
 
-    emailText = /*'<html><body><h2>Original Email: </h2><p>' + watsonInput + '</p> */ '<h2>Results: </h2> <h2>--Emotions--</h2><p>' +
+    emailText = '<html><body><h2>Original Email: </h2><p>' + watsonInput + '</p><h2>Results: </h2> <h2>--Emotions--</h2><p>' +
     '<h3>Anger: </h3> <p>' +
     anger + '%' +
     '</p> <h3>Disgust: </h3> <p>' +
