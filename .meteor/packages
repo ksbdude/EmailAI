@@ -7,8 +7,8 @@ less
 accounts-password
 useraccounts:bootstrap
 alanning:roles
-zimme:iron-router-active
-cmather:handlebars-server@0.2.0
+zimme:iron-router-active@2.0.1
+cmather:handlebars-server@2.0.0
 dburles:collection-helpers
 reywood:publish-composite
 momentjs:moment
