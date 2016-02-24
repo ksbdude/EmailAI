@@ -3,7 +3,7 @@
 var watson = Meteor.npmRequire('watson-developer-cloud');
 
 var SparkPost = Meteor.npmRequire('sparkpost');
-var sparky = new SparkPost('a6f9c6da23d308a74890919b5d2a644ad475f033');
+var sparky = new SparkPost(process.env.SPARKPOT_AUTHKEY);
 
 var watsonInput;
 var emailText;
@@ -36,8 +36,8 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
   var count;
 
 var tone_analyzer = watson.tone_analyzer({
-  username: '5d2c5f1e-fbe2-4aa6-8186-2c9a6dd9f9aa',
-  password: 'xPYobQo1AZdx',
+  username: process.env.WATSON_USERNAME,
+  password: process.env.WATSON_PASSWORD,
   version: 'v3-beta',
   version_date: '2016-02-11'
 });
