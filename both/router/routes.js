@@ -22,6 +22,11 @@ Router.route('/about', {
   name: 'about',
 });
 
+//routing for info page
+Router.route('/info', {
+  name: 'info',
+});
+
 //generate new route based on id
 Router.route('/:_id', {
   name: 'resultsAuth',
