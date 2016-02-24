@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-  //firebase data input
-
   var watson = Meteor.npmRequire('watson-developer-cloud');
 
   var SparkPost = Meteor.npmRequire('sparkpost');
@@ -152,7 +149,6 @@
       ref.child(snapKey).remove();
     }});
 });
-=======
 //firebase data input
 
 var watson = Meteor.npmRequire('watson-developer-cloud');
@@ -190,22 +186,22 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
 
   var count;
 
-var tone_analyzer = watson.tone_analyzer({
-  username: process.env.WATSON_USERNAME,
-  password: process.env.WATSON_PASSWORD,
-  version: 'v3-beta',
-  version_date: '2016-02-11'
-});
+  var tone_analyzer = watson.tone_analyzer({
+    username: process.env.WATSON_USERNAME,
+    password: process.env.WATSON_PASSWORD,
+    version: 'v3-beta',
+    version_date: '2016-02-11'
+  });
 
-tone_analyzer.tone({ text : "" + watsonInput},
-  function(err, tone) {
-   console.log("RUNNING WATSON");
-   if (err)
-    console.log(err);
-  else {
-    watsonOutput = JSON.stringify(tone, null, 2);
-    jsonOutput = JSON.parse(watsonOutput);
-    jsonOutput = jsonOutput['document_tone']['tone_categories'];
+  tone_analyzer.tone({ text : "" + watsonInput},
+    function(err, tone) {
+     console.log("RUNNING WATSON");
+     if (err)
+      console.log(err);
+    else {
+      watsonOutput = JSON.stringify(tone, null, 2);
+      jsonOutput = JSON.parse(watsonOutput);
+      jsonOutput = jsonOutput['document_tone']['tone_categories'];
 
     //Emotions
     var anger = jsonOutput[0]["tones"][0]["score"];
@@ -296,28 +292,27 @@ tone_analyzer.tone({ text : "" + watsonInput},
 
     console.log('EMAIL TEXT: '+ emailText);
 
-  sparky.transmissions.send({
-    transmissionBody: {
-      content: {
-        from: 'postmaster@idbolt.io',
-        subject: 'Results!',
-        html: '' + emailText,
-        text: ''
-      },
-      recipients: [
-      {address: email}
-      ]
-    }
-  }, function(err, res) {
-    if (err) {
-      console.log('Whoops! Something went wrong');
-      console.log(err);
-    } else {
-      console.log('message results from watson sent');
-    }
-  });
+    sparky.transmissions.send({
+      transmissionBody: {
+        content: {
+          from: 'postmaster@idbolt.io',
+          subject: 'Results!',
+          html: '' + emailText,
+          text: ''
+        },
+        recipients: [
+        {address: email}
+        ]
+      }
+    }, function(err, res) {
+      if (err) {
+        console.log('Whoops! Something went wrong');
+        console.log(err);
+      } else {
+        console.log('message results from watson sent');
+      }
+    });
 
-  ref.child(snapKey).remove();
-}});
+    ref.child(snapKey).remove();
+  }});
 });
->>>>>>> origin/master
