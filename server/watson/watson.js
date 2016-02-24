@@ -3,7 +3,7 @@
 var watson = Meteor.npmRequire('watson-developer-cloud');
 
 var SparkPost = Meteor.npmRequire('sparkpost');
-var sparky = new SparkPost('a6f9c6da23d308a74890919b5d2a644ad475f033');
+var sparky = new SparkPost(Meteor.settings.development.sparkpost.auth_key);
 
 var watsonInput;
 var emailText;
@@ -36,8 +36,8 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
   var count;
 
 var tone_analyzer = watson.tone_analyzer({
-  username: '5d2c5f1e-fbe2-4aa6-8186-2c9a6dd9f9aa',
-  password: 'xPYobQo1AZdx',
+  username: Meteor.settings.development.watson.username,
+  password: Meteor.settings.development.watson.password,
   version: 'v3-beta',
   version_date: '2016-02-11'
 });
@@ -51,6 +51,7 @@ tone_analyzer.tone({ text : "" + watsonInput},
     watsonOutput = JSON.stringify(tone, null, 2);
     jsonOutput = JSON.parse(watsonOutput);
     jsonOutput = jsonOutput['document_tone']['tone_categories'];
+
 
     //Emotions
     var anger = jsonOutput[0]["tones"][0]["score"];

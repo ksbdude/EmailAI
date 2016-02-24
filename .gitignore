@@ -1,0 +1,5 @@
+#env vars
+.env
+.settings.json
+.DS_STORE
+.git
