@@ -3,11 +3,9 @@
 var watson = Meteor.npmRequire('watson-developer-cloud');
 
 var SparkPost = Meteor.npmRequire('sparkpost');
-<<<<<<< HEAD
+
 var sparky = new SparkPost(Meteor.settings.development.sparkpost.auth_key);
-=======
-var sparky = new SparkPost(process.env.SPARKPOST_AUTHKEY);
->>>>>>> ksbdude/master
+
 
 var watsonInput;
 var emailText;
@@ -39,21 +37,14 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
 
   var count;
 
-<<<<<<< HEAD
+
 var tone_analyzer = watson.tone_analyzer({
   username: Meteor.settings.development.watson.username,
   password: Meteor.settings.development.watson.password,
   version: 'v3-beta',
   version_date: '2016-02-11'
 });
-=======
-  var tone_analyzer = watson.tone_analyzer({
-    username: process.env.WATSON_USERNAME,
-    password: process.env.WATSON_PASSWORD,
-    version: 'v3-beta',
-    version_date: '2016-02-11'
-  });
->>>>>>> ksbdude/master
+
 
   tone_analyzer.tone({ text : "" + watsonInput},
     function(err, tone) {
@@ -123,49 +114,25 @@ var tone_analyzer = watson.tone_analyzer({
     emotionalrange = Math.round(emotionalrange);
 
     emailText = '<html><body><h2>EmailAI</h2><h3>Original Email: </h3><p>' + watsonInput + '</p><h3>Results: </h3>' +
-    '<table><tr><td>Anger</td><td>' + anger + 
+    '<table><tr><td>Anger</td><td>' + anger +
     '%</td></tr><tr><td>Disgust</td><td>' + disgust +
     '%</td></tr><tr><td>Fear</td><td>' + fear +
-    '%</td></tr><tr><td>Joy</td><td>' + joy + 
-    '%</td></tr><tr><td>Sadness</td><td>' + sadness + 
-    '%</td></tr><tr><td>Analytical</td><td>' + analytical + 
-    '%</td></tr><tr><td>Confident</td><td>' + confident + 
-    '%</td></tr><tr><td>Tentative</td><td>' + tentative + 
-    '%</td></tr><tr><td>Openness</td> <td>' + openness + 
+    '%</td></tr><tr><td>Joy</td><td>' + joy +
+    '%</td></tr><tr><td>Sadness</td><td>' + sadness +
+    '%</td></tr><tr><td>Analytical</td><td>' + analytical +
+    '%</td></tr><tr><td>Confident</td><td>' + confident +
+    '%</td></tr><tr><td>Tentative</td><td>' + tentative +
+    '%</td></tr><tr><td>Openness</td> <td>' + openness +
     '%</td></tr><tr><td>Conscientiousness</td><td>' + conscientiousness +
     '%</td></tr><tr><td>Extraversion</td><td>' + extraversion +
     '%</td></tr><tr><td>Agreeableness</td><td>' + agreeableness +
     '%</td></tr><tr><td>Emotional Range</td><td>' + emotionalrange +
-    '%</td></table>' + 
+    '%</td></table>' +
     '<p><i>Created by Kevin Burns and Brett Henderson</i></p></body></html>';
 
     console.log('EMAIL TEXT: '+ emailText);
 
-<<<<<<< HEAD
-  sparky.transmissions.send({
-    transmissionBody: {
-      content: {
-        from: 'postmaster@idbolt.io',
-        subject: 'Results!',
-        html: '' + emailText,
-        text: ''
-      },
-      recipients: [
-      {address: email}
-      ]
-    }
-  }, function(err, res) {
-    if (err) {
-      console.log('Whoops! Something went wrong');
-      console.log(err);
-    } else {
-      console.log('message results from watson sent');
-    }
-  });
 
-  ref.child(snapKey).remove();
-}});
-=======
     sparky.transmissions.send({
       transmissionBody: {
         content: {
@@ -189,5 +156,4 @@ var tone_analyzer = watson.tone_analyzer({
 
     ref.child(snapKey).remove();
   }});
->>>>>>> ksbdude/master
 });
