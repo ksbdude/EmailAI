@@ -4,9 +4,3 @@ Template.info.events({
     Router.go('anotherpath');
   }
 });
-
-Template.name.events({
-  "click #foo": function(event, template){
-
-  }
-});
