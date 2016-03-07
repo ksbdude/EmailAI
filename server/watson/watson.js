@@ -4,8 +4,7 @@ var watson = Meteor.npmRequire('watson-developer-cloud');
 
 var SparkPost = Meteor.npmRequire('sparkpost');
 
-var sparky = new var sparky = new SparkPost(process.env.SPARKPOST_AUTHKEY);
-
+var sparky = new var sparky = new SparkPost(Meteor.settings.development.sparkpost.auth_key);
 
 
 var watsonInput;
@@ -40,8 +39,8 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
 
 
 var tone_analyzer = watson.tone_analyzer({
-  username: process.env.WATSON_USERNAME,
-  password: process.env.WATSON_PASSWORD,
+  username: Meteor.settings.development.watson.username,
+  password: Meteor.settings.development.watson.password,
   version: 'v3-beta',
   version_date: '2016-02-11'
 });
