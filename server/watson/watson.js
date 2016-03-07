@@ -7,6 +7,7 @@ var SparkPost = Meteor.npmRequire('sparkpost');
 var sparky = new var sparky = new SparkPost(process.env.SPARKPOST_AUTHKEY);
 
 
+
 var watsonInput;
 var emailText;
 var watsonOutput;
