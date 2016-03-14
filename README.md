@@ -2,6 +2,8 @@
 
 #emailAssistant
 ![logo8 copy](https://cloud.githubusercontent.com/assets/955730/13084450/4d9e6866-d48e-11e5-88b6-8cf6482c0709.png)
+
+![logo8 copy](https://www.sparkpost.com/blog/wp-content/uploads/2016/03/AwardWINNER_Badge_150x150_012216.jpg)
 ##Description
   * emailAssistant (or emailAI) is currently a backend service that can be used to proofread emails, essays, etc.
   * Our platform analyzes emotional context used within text and returns the analytical results to the user.
