@@ -31,7 +31,6 @@ meteorhacks:npm
 npm-container
 es5-shim
 ecmascript
-standard-minifiers
 meteor-base
 mobile-experience
 mongo
@@ -50,3 +49,5 @@ miro:json2html
 fortawesome:fontawesome
 zimme:active-route
 bshamblen:morrisjs
+standard-minifier-css
+standard-minifier-js
