@@ -8,6 +8,8 @@ node_js:
 
 before_install:
   - "curl https://install.meteor.com | /bin/sh"
+  - "npm install -g meteorite laika"
   - export PATH="$HOME/.meteor:$PATH"
 
-script: "meteor --test"
+env:
+  - LAIKA_OPTIONS="-t 5000"
