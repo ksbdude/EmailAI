@@ -4,7 +4,8 @@ var watson = Meteor.npmRequire('watson-developer-cloud');
 
 var SparkPost = Meteor.npmRequire('sparkpost');
 
-var sparky = new var sparky = new SparkPost(process.env.SPARKPOST_AUTHKEY);
+var sparky = new SparkPost(process.env.SPARKPOST_AUTHKEY);
+
 
 
 var watsonInput;
