@@ -11,6 +11,9 @@ before_install:
   - "npm install -g meteorite laika"
   - export PATH="$HOME/.meteor:$PATH"
 
+services:
+  - mongodb
+
 env:
   - LAIKA_OPTIONS="-t 5000"
 
