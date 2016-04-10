@@ -13,3 +13,5 @@ before_install:
 
 env:
   - LAIKA_OPTIONS="-t 5000"
+
+script: "laika -t 5000"
