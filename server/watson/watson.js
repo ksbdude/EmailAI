@@ -4,7 +4,8 @@ var watson = Meteor.npmRequire('watson-developer-cloud');
 
 var SparkPost = Meteor.npmRequire('sparkpost');
 
-var sparky = new var sparky = new SparkPost(Meteor.settings.development.sparkpost.auth_key);
+var sparky = new SparkPost(Meteor.settings.development.sparkpost.auth_key);
+
 
 
 var watsonInput;
@@ -54,7 +55,9 @@ var tone_analyzer = watson.tone_analyzer({
     else {
       watsonOutput = JSON.stringify(tone, null, 2);
       jsonOutput = JSON.parse(watsonOutput);
-      jsonOutput = jsonOutput['document_tone']['tone_categories'];
+      jsonOutput = jsonOutput.document_tone.tone_categories;
+
+      // jsonOutput = jsonOutput['document_tone']['tone_categories'];
 
 
     //Emotions
@@ -132,7 +135,8 @@ var tone_analyzer = watson.tone_analyzer({
 
     console.log('EMAIL TEXT: '+ emailText);
 
-
+// //function to send email
+// void function sendEmail(){
     sparky.transmissions.send({
       transmissionBody: {
         content: {
