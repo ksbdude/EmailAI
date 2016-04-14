@@ -8,13 +8,13 @@ describe('testing gagarin', function() {
 });
 
 //tests for watson.js
-describe('testing watson.js', function() {
-    var server = meteor();
-    it('returns watson/sparkpost output', function() {
-        return server.execute(function() {
-            Meteor.call(analayzeTone());
-        });
-    });
-
-
-});
+// describe('testing watson.js', function() {
+//     var server = meteor();
+//     it('returns watson/sparkpost output', function() {
+//         return server.execute(function() {
+//             Meteor.call(analayzeTone());
+//         });
+//     });
+//
+//
+// });
