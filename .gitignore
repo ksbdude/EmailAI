@@ -1,6 +1,7 @@
 ### MeteorJS ###
 # default meteor build and local packages
 .meteor/local
+.env
 
 # meteor settings file
 settings.json

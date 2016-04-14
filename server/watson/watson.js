@@ -7,8 +7,8 @@ import SparkPost from 'sparkpost';
 import Firebase from 'firebase';
 // var SparkPost = Meteor.npmRequire('sparkpost');
 
-var sparky = new SparkPost(Meteor.settings.development.sparkpost.auth_key);
-
+// var sparky = new SparkPost(Meteor.settings.development.sparkpost.auth_key);
+var sparky = new SparkPost(process.env.SPARKPOST_AUTHKEY)
 
 
 var watsonInput;
