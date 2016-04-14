@@ -1,0 +1,14 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+standard-app-packages
+insecure
+anti:gagarin@=0.4.12
+mystor:device-detection
+accounts-password
+
+accounts-base
+iron:router
+standard-minifiers
