@@ -25,7 +25,6 @@ useraccounts:iron-routing
 twbs:bootstrap
 fezvrasta:bootstrap-material-design
 email
-meteorhacks:npm
 
 
 npm-container
@@ -51,4 +50,4 @@ zimme:active-route
 bshamblen:morrisjs
 standard-minifier-css
 standard-minifier-js
-anti:gagarin
+anti:gagarin@=0.4.12
