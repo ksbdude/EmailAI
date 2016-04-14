@@ -1,8 +1,10 @@
 //firebase data input
 
+//node module imports
 // var watson = Meteor.npmRequire('watson-developer-cloud');
 import watson from 'watson-developer-cloud';
 import SparkPost from 'sparkpost';
+import Firebase from 'firebase';
 // var SparkPost = Meteor.npmRequire('sparkpost');
 
 var sparky = new SparkPost(Meteor.settings.development.sparkpost.auth_key);
@@ -59,10 +61,7 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
                             jsonOutput = JSON.parse(watsonOutput);
                             jsonOutput = jsonOutput.document_tone.tone_categories;
 
-
-
                             // jsonOutput = jsonOutput['document_tone']['tone_categories'];
-
 
                             //Emotions
                             var anger = jsonOutput[0]["tones"][0]["score"];
@@ -140,7 +139,7 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
                             console.log('EMAIL TEXT: ' + emailText);
 
                             // //function to send email
-                            // void function sendEmail(){
+                          function sendResults() {
                             sparky.transmissions.send({
                                 transmissionBody: {
                                     content: {
@@ -161,7 +160,7 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
                                     console.log('message results from watson sent');
                                 }
                             });
-
+                          }
                             ref.child(snapKey).remove();
                         }
                     });
