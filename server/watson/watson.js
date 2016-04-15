@@ -10,6 +10,11 @@ import Firebase from 'firebase';
 // var sparky = new SparkPost(Meteor.settings.development.sparkpost.auth_key);
 var sparky = new SparkPost(process.env.SPARKPOST_AUTHKEY)
 
+if (err) {
+  //config for CI
+  var sparky = new SparkPost(Meteor.settings.development.sparkpost.auth_key);
+}
+
 
 var watsonInput;
 var emailText;
