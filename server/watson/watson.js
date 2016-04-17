@@ -69,58 +69,58 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
                             // jsonOutput = jsonOutput['document_tone']['tone_categories'];
 
                             //Emotions
-                            var anger = jsonOutput[0]["tones"][0]["score"];
+                            var anger = jsonOutput[0].tones[0].score;
                             anger *= 100;
                             anger = Math.round(anger);
 
-                            var disgust = jsonOutput[0]["tones"][1]["score"];
+                            var disgust = jsonOutput[0].tones[1].score;
                             disgust *= 100;
                             disgust = Math.round(disgust);
 
-                            var fear = jsonOutput[0]["tones"][2]["score"];
+                            var fear = jsonOutput[0].tones[2].score;
                             fear *= 100;
                             fear = Math.round(fear);
 
-                            var joy = jsonOutput[0]["tones"][3]["score"];
+                            var joy = jsonOutput[0].tones[3].score;
                             joy *= 100;
                             joy = Math.round(joy);
 
-                            var sadness = jsonOutput[0]["tones"][4]["score"];
+                            var sadness = jsonOutput[0].tones[4].score;
                             sadness *= 100;
                             sadness = Math.round(sadness);
 
                             //Writing Tone
-                            var analytical = jsonOutput[1]["tones"][0]["score"];
+                            var analytical = jsonOutput[1].tones[0].score;
                             analytical *= 100;
                             analytical = Math.round(analytical);
 
-                            var confident = jsonOutput[1]["tones"][1]["score"];
+                            var confident = jsonOutput[1].tones[1].score;
                             confident *= 100;
                             confident = Math.round(confident);
 
-                            var tentative = jsonOutput[1]["tones"][2]["score"];
+                            var tentative = jsonOutput[1].tones[2].score;
                             tentative *= 100;
                             tentative = Math.round(tentative);
 
 
                             //Social Tone
-                            var openness = jsonOutput[2]["tones"][0]["score"];
+                            var openness = jsonOutput[2].tones[0].score;
                             openness *= 100;
                             openness = Math.round(openness);
 
-                            var conscientiousness = jsonOutput[2]["tones"][1]["score"];
+                            var conscientiousness = jsonOutput[2].tones[1].score;
                             conscientiousness *= 100;
                             conscientiousness = Math.round(conscientiousness);
 
-                            var extraversion = jsonOutput[2]["tones"][2]["score"];
+                            var extraversion = jsonOutput[2].tones[2].score;
                             extraversion *= 100;
                             extraversion = Math.round(extraversion);
 
-                            var agreeableness = jsonOutput[2]["tones"][3]["score"];
+                            var agreeableness = jsonOutput[2].tones[3].score;
                             agreeableness *= 100;
                             agreeableness = Math.round(agreeableness);
 
-                            var emotionalrange = jsonOutput[2]["tones"][4]["score"];
+                            var emotionalrange = jsonOutput[2].tones[4].score;
                             emotionalrange *= 100;
                             emotionalrange = Math.round(emotionalrange);
 
