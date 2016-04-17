@@ -1,14 +1,13 @@
-//firebase data input
+/*jshint esversion: 6 */
 
-//node module imports
-// var watson = Meteor.npmRequire('watson-developer-cloud');
+// firebase data input
+
 import watson from 'watson-developer-cloud';
 import SparkPost from 'sparkpost';
 import Firebase from 'firebase';
-// var SparkPost = Meteor.npmRequire('sparkpost');
 
 // var sparky = new SparkPost(Meteor.settings.development.sparkpost.auth_key);
-var sparky = new SparkPost(process.env.SPARKPOST_AUTHKEY)
+var sparky = new SparkPost(process.env.SPARKPOST_AUTHKEY);
 
 // if (err) {
 //   //config for CI
@@ -32,7 +31,7 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
             snapshot.child("0/msys/relay_message/content/").forEach(function(snap) {
                 if (snap.key() === 'text') {
                     watsonInput = snap.val();
-                    watsonInput = watsonInput.replace('>', '').replace('<', '')
+                    watsonInput = watsonInput.replace('>', '').replace('<', '');
                 }
             });
 
@@ -65,8 +64,6 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
                             watsonOutput = JSON.stringify(tone, null, 2);
                             jsonOutput = JSON.parse(watsonOutput);
                             jsonOutput = jsonOutput.document_tone.tone_categories;
-
-                            // jsonOutput = jsonOutput['document_tone']['tone_categories'];
 
                             //Emotions
                             var anger = jsonOutput[0].tones[0].score;
@@ -144,7 +141,7 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
                             console.log('EMAIL TEXT: ' + emailText);
 
                             // //function to send email
-                          function sendResults() {
+                    var transSend =  function () {
                             sparky.transmissions.send({
                                 transmissionBody: {
                                     content: {
@@ -165,7 +162,7 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
                                     console.log('message results from watson sent');
                                 }
                             });
-                          }
+                          };
                             ref.child(snapKey).remove();
                         }
                     });
