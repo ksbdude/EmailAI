@@ -6,6 +6,9 @@ import watson from 'watson-developer-cloud';
 import SparkPost from 'sparkpost';
 import Firebase from 'firebase';
 
+if (Meteor.isServer){
+
+
 // var sparky = new SparkPost(Meteor.settings.development.sparkpost.auth_key);
 var sparky = new SparkPost(process.env.SPARKPOST_AUTHKEY);
 
@@ -167,3 +170,4 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
                     });
                   }
             });
+          }
