@@ -9,10 +9,10 @@ import Firebase from 'firebase';
 // var sparky = new SparkPost(Meteor.settings.development.sparkpost.auth_key);
 var sparky = new SparkPost(process.env.SPARKPOST_AUTHKEY);
 
-// if (err) {
-//   //config for CI
-//   var sparky = new SparkPost(Meteor.settings.development.sparkpost.auth_key);
-// }
+if (sparky === undefined) {
+  //config for CI
+  var sparky = new SparkPost(Meteor.settings.development.sparkpost.auth_key);
+}
 
 var watsonInput;
 var emailText;
@@ -139,7 +139,7 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
 
                             console.log('EMAIL TEXT: ' + emailText);
 
-                            // //function to send email
+                   //function to send email
                     var transSend =  function () {
                             sparky.transmissions.send({
                                 transmissionBody: {
