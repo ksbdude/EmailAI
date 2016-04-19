@@ -14,7 +14,6 @@ var sparky = new SparkPost(process.env.SPARKPOST_AUTHKEY);
 //   var sparky = new SparkPost(Meteor.settings.development.sparkpost.auth_key);
 // }
 
-
 var watsonInput;
 var emailText;
 var watsonOutput;

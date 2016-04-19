@@ -1,4 +1,5 @@
 [![ghit.me](https://ghit.me/badge.svg?repo=ksbdude/EmailAI)](https://ghit.me/repo/ksbdude/EmailAI)
+[![Circle CI](https://circleci.com/gh/bretth18/EmailAI.svg?style=svg)](https://circleci.com/gh/bretth18/EmailAI)
 
 #emailAssistant
 ![logo8 copy](https://cloud.githubusercontent.com/assets/955730/13084450/4d9e6866-d48e-11e5-88b6-8cf6482c0709.png)
