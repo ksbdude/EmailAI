@@ -27,7 +27,6 @@ fezvrasta:bootstrap-material-design
 email
 
 
-npm-container
 es5-shim
 ecmascript
 meteor-base
