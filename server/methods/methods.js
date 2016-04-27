@@ -7,7 +7,7 @@ if(Meteor.isServer){
     havenTest:function(){
 
       // define hod
-      var apikey = '27eeab57-ca98-4be0-a420-99f8987a271b';
+      var apikey = process.env.HOD_AUTHKEY;
       client = new hod.HODClient(apikey);
 
       // define some test data
@@ -22,8 +22,6 @@ if(Meteor.isServer){
 
       // call data
       client.call('analyzesentiment', callback, testData);
-
-
     }
   });
 }
