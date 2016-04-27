@@ -1,10 +1,9 @@
-/*jshint esversion: 6 */
-
 // firebase data input
 
 import watson from 'watson-developer-cloud';
 import SparkPost from 'sparkpost';
 import Firebase from 'firebase';
+import hod from 'havenondemand';
 
 if (Meteor.isServer){
 
@@ -23,9 +22,14 @@ var watsonOutput;
 var email;
 var jsonOutput;
 
+// TODO: remove
+Meteor.call("havenTest");
+
 var ref = new Firebase("https://watspark.firebaseio.com/raw-events/");
 
+// when a new child is added to remote db function is triggered
 ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
+
             var child = snapshot.val();
             console.log(snapshot.key());
             var snapKey = '' + snapshot.key();

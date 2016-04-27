@@ -7,6 +7,15 @@ describe('testing gagarin', function() {
     });
 });
 
+
+
+// test for hod
+// it('should return value from hod method', function () {
+//   var server = meteor();
+//   return server.execute(function () {
+//     console.log(havenTest);
+//   });
+// });
 //tests for watson.js
 // describe('testing watson.js', function() {
 //     var server = meteor();
