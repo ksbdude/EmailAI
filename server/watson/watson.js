@@ -22,8 +22,6 @@ var watsonOutput;
 var email;
 var jsonOutput;
 
-// TODO: remove
-Meteor.call("havenTest");
 
 var ref = new Firebase("https://watspark.firebaseio.com/raw-events/");
 
@@ -48,9 +46,11 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
                 }
             });
 
-            var count;
+            function runHod(){
+              Meteor.call("havenTest", watsonInput);
+            }
 
-            function analayzeTone() {
+            var count;
 
                 var tone_analyzer = watson.tone_analyzer({
                     username: Meteor.settings.development.watson.username,
@@ -172,6 +172,6 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
                             ref.child(snapKey).remove();
                         }
                     });
-                  }
+
             });
           }
