@@ -24,7 +24,18 @@
     "havenondemand": "^1.1.2",
     "sparkpost": "^1.3.2",
     "watson-developer-cloud": "^1.3.3",
-    "xml2js": "^0.4.16"
+    "xml2js": "^0.4.16",
+    "react": "^15.0.1",
+    "react-addons-create-fragment": "^15.0.1",
+    "react-addons-css-transition-group": "^15.0.1",
+    "react-addons-linked-state-mixin": "^15.0.1",
+    "react-addons-perf": "^15.0.1",
+    "react-addons-pure-render-mixin": "^15.0.1",
+    "react-addons-test-utils": "^15.0.1",
+    "react-addons-transition-group": "^15.0.1",
+    "react-addons-update": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "react-mounter": "^1.2.0"
   },
   "devDependencies": {
     "firebase": "^2.4.2",
