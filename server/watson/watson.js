@@ -146,29 +146,10 @@ ref.orderByKey().limitToLast(1).on("child_added", function(snapshot) {
 
                             console.log('EMAIL TEXT: ' + emailText);
 
-                   //function to send email
-                    var transSend =  function () {
-                            sparky.transmissions.send({
-                                transmissionBody: {
-                                    content: {
-                                        from: 'postmaster@idbolt.io',
-                                        subject: 'Results!',
-                                        html: '' + emailText,
-                                        text: ''
-                                    },
-                                    recipients: [{
-                                        address: email
-                                    }]
-                                }
-                            }, function(err, res) {
-                                if (err) {
-                                    console.log('Whoops! Something went wrong');
-                                    console.log(err);
-                                } else {
-                                    console.log('message results from watson sent');
-                                }
-                            });
-                          };
+                           //function to send email, calling method on server
+                            var sendMail = function() {
+                              Meteor.call('sparkpostSend', emailText, email);
+                            };
                             ref.child(snapKey).remove();
                         }
                     });
