@@ -19,6 +19,7 @@
 * emailAssistant is developed on top of the Meteor.js stack.
 
 ##Continued Development
+- checkout `dev` branch here: https://github.com/ksbdude/EmailAI/tree/dev
 * Front-End integration
 * GmailAPI integration
 * Self-Contained platform
