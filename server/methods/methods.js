@@ -21,6 +21,7 @@ if(Meteor.isServer){
       var callback = function(err,resp,body){
         // our callback body will be appended to email output
         console.log(body);
+        return body;
       };
 
       // call data
@@ -74,10 +75,15 @@ if(Meteor.isServer){
           var watsonOutput = JSON.stringify(tone, null, 2);
           var jsonOutput = JSON.parse(watsonOutput);
           jsonOutput = jsonOutput.document_tone.tone_categories;
+          return jsonOutput;
 
-          //TODO: find more efficient way to manage tone output
         }
       });
+
+    },
+
+    // server side method to handle image to text processing
+    havenImage: function(){
 
     }
 

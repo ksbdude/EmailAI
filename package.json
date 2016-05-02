@@ -20,11 +20,9 @@
     "watson": "watson.js"
   },
   "dependencies": {
+    "fibers": "^1.0.10",
     "gagarin": "^0.4.12",
     "havenondemand": "^1.1.2",
-    "sparkpost": "^1.3.2",
-    "watson-developer-cloud": "^1.3.3",
-    "xml2js": "^0.4.16",
     "react": "^15.0.1",
     "react-addons-create-fragment": "^15.0.1",
     "react-addons-css-transition-group": "^15.0.1",
@@ -35,7 +33,10 @@
     "react-addons-transition-group": "^15.0.1",
     "react-addons-update": "^15.0.1",
     "react-dom": "^15.0.1",
-    "react-mounter": "^1.2.0"
+    "react-mounter": "^1.2.0",
+    "sparkpost": "^1.3.2",
+    "watson-developer-cloud": "^1.3.3",
+    "xml2js": "^0.4.16"
   },
   "devDependencies": {
     "firebase": "^2.4.2",
