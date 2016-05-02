@@ -1,12 +1,16 @@
 [![ghit.me](https://ghit.me/badge.svg?repo=ksbdude/EmailAI)](https://ghit.me/repo/ksbdude/EmailAI)
 [![Circle CI](https://circleci.com/gh/bretth18/EmailAI.svg?style=svg)](https://circleci.com/gh/bretth18/EmailAI)
 
-#emailAssistant
-![logo8 copy](https://cloud.githubusercontent.com/assets/955730/13084450/4d9e6866-d48e-11e5-88b6-8cf6482c0709.png)
+#EmailAI
+![6980953f-ed10-4e3a-87b0-76c891087c29 1](https://cloud.githubusercontent.com/assets/955730/14698010/9c4b1fd0-073e-11e6-9c07-c2eabe292a65.jpg)
+
+
 ##Description
   * emailAssistant (or emailAI) is currently a backend service that can be used to proofread emails, essays, etc.
   * Our platform analyzes emotional context used within text and returns the analytical results to the user.
 
+##Demo
+  * to try EmailAI, send an email with text to `testing@inbound.idbolt.io`
 
 
 ##Project Information

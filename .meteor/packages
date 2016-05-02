@@ -7,8 +7,6 @@ less
 accounts-password
 useraccounts:bootstrap
 alanning:roles
-zimme:iron-router-active@2.0.1
-cmather:handlebars-server@2.0.0
 dburles:collection-helpers
 reywood:publish-composite
 momentjs:moment
@@ -16,18 +14,13 @@ underscorestring:underscore.string
 matb33:collection-hooks
 dburles:factory
 anti:fake
-cunneen:mailgun
-iron:router@1.0.0
-yasinuslu:blaze-meta
 aldeed:collection2
 aldeed:autoform
-useraccounts:iron-routing
 twbs:bootstrap
 fezvrasta:bootstrap-material-design
 email
 
 
-npm-container
 es5-shim
 ecmascript
 meteor-base
@@ -44,10 +37,11 @@ ejson
 spacebars
 check
 webstudiopro:curl
-miro:json2html
 fortawesome:fontawesome
 zimme:active-route
 bshamblen:morrisjs
 standard-minifier-css
 standard-minifier-js
 anti:gagarin@=0.4.12
+kadira:flow-router
+kadira:reaktor

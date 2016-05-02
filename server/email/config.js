@@ -58,28 +58,28 @@
 // request.send();
 
 //sparkpost
-var SparkPost = Meteor.npmRequire('sparkpost');
-var sparky = new SparkPost('eb5e8fde469ca2f150b28539eeccee8100b99e1f');
-
-sparky.transmissions.send({
-  transmissionBody: {
-    content: {
-      from: 'postmaster@idbolt.io',
-      subject: 'Oh hey!',
-      //TODO: Watson Output data goes here
-      // watsonData.val();
-      //html: watsonData.val()
-      //html:'<html><body><p>Testing SparkPost - the world\'s most awesomest email service!</p></body></html>'
-    },
-    recipients: [
-      {address: 'bretth18@gmail.com'}
-    ]
-  }
-}, function(err, res) {
-  if (err) {
-    console.log('Whoops! Something went wrong');
-    console.log(err);
-  } else {
-    console.log('Woohoo! You just sent your first mailing!');
-  }
-});
+// var SparkPost = Meteor.npmRequire('sparkpost');
+// var sparky = new SparkPost();
+//
+// sparky.transmissions.send({
+//   transmissionBody: {
+//     content: {
+//       from: 'postmaster@idbolt.io',
+//       subject: 'Oh hey!',
+//       //TODO: Watson Output data goes here
+//       // watsonData.val();
+//       //html: watsonData.val()
+//       //html:'<html><body><p>Testing SparkPost - the world\'s most awesomest email service!</p></body></html>'
+//     },
+//     recipients: [
+//       {address: 'bretth18@gmail.com'}
+//     ]
+//   }
+// }, function(err, res) {
+//   if (err) {
+//     console.log('Whoops! Something went wrong');
+//     console.log(err);
+//   } else {
+//     console.log('Woohoo! You just sent your first mailing!');
+//   }
+// });
